@@ -6,3 +6,8 @@ data class Space(
     val right: Int = 0,
     val bottom: Int = 0
 )
+
+data class Chat(
+    val massage: String = "",
+    val isUser: Boolean = true
+)
