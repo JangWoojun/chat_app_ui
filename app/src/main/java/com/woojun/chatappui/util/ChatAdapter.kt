@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.woojun.chatappui.databinding.ChatItemBinding
 import com.woojun.chatappui.databinding.OtherChatItemBinding
 
-class ChatAdapter(private val chatList: List<Chat>): RecyclerView.Adapter<ViewHolder>() {
+class ChatAdapter(private val chatList: MutableList<Chat>): RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return when (viewType) {
@@ -38,6 +38,16 @@ class ChatAdapter(private val chatList: List<Chat>): RecyclerView.Adapter<ViewHo
             }
 
         }
+    }
+
+    fun addChat(chat: Chat) {
+        chatList.add(chat)
+
+        notifyItemInserted(chatList.size - 1)
+    }
+
+    fun getChat(): List<Chat> {
+        return chatList
     }
 
     override fun getItemViewType(position: Int): Int {
