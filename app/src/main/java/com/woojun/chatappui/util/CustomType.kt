@@ -1,4 +1,4 @@
-package com.woojun.chatappui
+package com.woojun.chatappui.util
 
 data class Space(
     val top: Int = 0,

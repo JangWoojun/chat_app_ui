@@ -1,4 +1,4 @@
-package com.woojun.chatappui
+package com.woojun.chatappui.util
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
