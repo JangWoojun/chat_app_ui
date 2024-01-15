@@ -9,5 +9,6 @@ data class Space(
 
 data class Chat(
     val massage: String = "",
-    val isUser: Boolean = true
+    val isUser: Boolean = true,
+    val date: String = ""
 )
