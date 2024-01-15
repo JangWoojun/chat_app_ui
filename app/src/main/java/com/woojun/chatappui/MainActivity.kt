@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             submitButton.setOnClickListener {
                 adapter.addChat(Chat(editMessage.text.toString(), true, getDate()))
                 chatRecycler.scrollToPosition(adapter.getChat().size - 1)
+                editMessage.text.clear()
             }
         }
     }
