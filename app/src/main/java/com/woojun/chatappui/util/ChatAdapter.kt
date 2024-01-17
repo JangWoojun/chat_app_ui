@@ -1,5 +1,6 @@
 package com.woojun.chatappui.util
 
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.woojun.chatappui.databinding.ChatItemBinding
 import com.woojun.chatappui.databinding.OtherChatItemBinding
+import com.woojun.chatappui.util.UtilFunction.dpToPx
 
 class ChatAdapter(private val chatList: MutableList<Chat>): RecyclerView.Adapter<ViewHolder>() {
 
@@ -73,6 +75,14 @@ class ChatAdapter(private val chatList: MutableList<Chat>): RecyclerView.Adapter
                 messageText.text = chat.massage
                 dateText.text = chat.date
                 isShowText.visibility = View.VISIBLE
+
+                dateText.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+                isShowText.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+
+                val screenWidth = Resources.getSystem().displayMetrics.widthPixels
+                val extraWidth = dateText.measuredWidth + isShowText.measuredWidth
+                val maxWidth = screenWidth - (extraWidth + dpToPx(binding.root.context, 60))
+                messageText.maxWidth = maxWidth
             }
         }
     }
@@ -84,6 +94,14 @@ class ChatAdapter(private val chatList: MutableList<Chat>): RecyclerView.Adapter
                 messageText.text = chat.massage
                 dateText.text = chat.date
                 isShowText.visibility = View.INVISIBLE
+
+                dateText.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+                isShowText.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
+
+                val screenWidth = Resources.getSystem().displayMetrics.widthPixels
+                val extraWidth = dateText.measuredWidth + isShowText.measuredWidth
+                val maxWidth = screenWidth - (extraWidth + dpToPx(binding.root.context, 60))
+                messageText.maxWidth = maxWidth
             }
         }
     }
